@@ -1,0 +1,90 @@
+body {
+    background-color: #f0f0f0;
+    background-color: rgb(102, 153, 78);
+}
+.navbar {
+    background-color: #fff;
+    
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #f05b05;
+    font-family: serif;
+    font-weight: bold;
+    font-size: larger;
+    
+}
+.nav-link {
+    color: #333;
+}
+.item-card {
+    transition: transform 0.2s;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+
+}
+.md-4 mb-4{
+    width: 20%;  
+}
+.item-card:hover {
+    transform: scale(1.05);
+}
+.item-price-shilling {
+    font-weight: bold;
+    color: #333;
+}
+.item-price-dollar {
+    display: none;
+}
+.item-card:hover .item-price-dollar {
+    display: inline;
+}
+
+
+.add-to-cart-btn {
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.add-to-cart-btn:hover {
+    background-color: #ff4500;
+}
+/* Cart icon */
+.cart-icon {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    color: #ff6600;
+    cursor: pointer;
+}
+/* Cart modal */
+.modal-cart {
+    max-height: 400px;
+    overflow-y: auto;
+}
+h2{
+    color: aqua;
+    font-weight: bolder;
+    font-style: oblique;
+}
+.card-body{
+    color: #05f011;
+}
+.item-price-shilling{
+    color: rgb(250, 30, 166);
+}
+.modal-foote{
+    color: #05f011;
+    color: #f0f0f0;
+}
+.collapse navbar-collapse{
+    color: chartreuse;
+    background: #20ce3d;
+}
+

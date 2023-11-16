@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #97c5a7;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+            
+            margin: 0;
+            padding: 0;
+            background-image: url('egret.jfif'); /* Replace 'your-image.jpg' with your image file path */
+            background-size: cover;
+            background-attachment: fixed; /* This keeps the background fixed even when scrolling */
+            background-position: center; /* Center the background image */
+        }
+
+        /* Add other CSS styles for your content here */
+    
+
+        .container {
+            background-color: #4a4e4a;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: rgb(251, 252, 252);
+            font-style: oblique;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            padding-right: 2px;
+            border: 1px solid #91af0d;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #00ff4c;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #f80ab1;
+        }
+
+        .hidden {
+            display: none;
+        }
+        .form-group{
+            color: rgb(250, 165, 239);
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+
+    <!-- Create a progress element with an initial value (e.g., 0%) -->
+    <progress value="0" max="100" id="progressBar"></progress>
+
+    <!-- Optional: Display the current progress value -->
+    <p><span id="progressValue"> </span></p>
+
+    <!-- Content to be displayed after the progress bar completes -->
+    <div id="content" style="display: none;">
+        <div class="container">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfDjYq5VT5bNCJBPI1u76qnXF9-dZxsqqAEwpwnwv7Jza0e4w/viewform?usp=pp_url"><button type="submit">Login</button></a>
+            </form>
+
+            <h2>Signup</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupUsername">Username</label>
+                    <input type="text" id="signupUsername" name="signupUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" name="signupPassword" required>
+                </div>
+                <button type="submit">Signup</button>
+            </form>
+            <p id="message" class="hidden">hey</p>
+        </div>
+    </div>
+
+    <!-- JavaScript to update the progress value and show content -->
+    <script>
+        // Get the progress element and the progress value span
+        var progressBar = document.getElementById('progressBar');
+        var progressValue = document.getElementById('progressValue');
+        var content = document.getElementById('content');
+
+        function updateProgress() {
+            if (progressBar.value < progressBar.max) {
+                progressBar.value += 40;
+                progressValue.textContent = progressBar.value + '%';
+            } else {
+                progressBar.style.display = 'none';
+                progressValue.style.display = 'none';
+                content.style.display = 'block';
+            }
+        }
+
+        var interval = setInterval(updateProgress, 1000);
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loginForm = document.getElementById("loginForm");
+            const signupForm = document.getElementById("signupForm");
+            const message = document.getElementById("message");
+
+            loginForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                const loginUsername = document.getElementById("username").value;
+                const loginPassword = document.getElementById("password").value;
+
+                if (loginUsername === "user" && loginPassword === "password") {
+                    message.textContent = "Login successful!";
+                    message.classList.remove("hidden");
+                    message.style.color = "green";
+                } else {
+                    message.textContent = "Invalid username or password.";
+                    message.classList.remove("hidden");
+                    message.style.color = "red";
+                }
+            });
+
+            signupForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                const signupUsername = document.getElementById("signupUsername").value;
+                const signupPassword = document.getElementById("signupPassword").value;
+
+               
+                message.textContent = "Signup successful!";
+                message.classList.remove("hidden");
+                message.style.color = "green";
+            });
+        });
+    </script>
+</body>
+</html>
